@@ -45,11 +45,11 @@ export default function Navbar() {
                     <Link href="/try-for-free">Try for free</Link>
                 </div>
                 {/* Hamburger Icon */}
-                <div>
+                <button className="flex flex-col justify-center items-center lg:hidden">
                     <span></span>
                     <span></span>
                     <span></span>
-                </div>
+                </button>
             </div>
         </header>
     )
