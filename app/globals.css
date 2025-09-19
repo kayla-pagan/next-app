@@ -17,3 +17,44 @@
   --color-off-white: #F7F5F5;
   --color-white: #FFFFFF;
 }
+
+@utility header-1 {
+  @apply font-bold;
+  font-size: 48px;
+}
+
+@utility header-2 {
+  @apply font-bold;
+  font-size: 32px;
+}
+
+@utility header-3 {
+  @apply font-bold;
+  font-size: 24px;
+}
+
+@utility subtitle-1 {
+  @apply font-semibold;
+  font-size: 24px;
+}
+
+@utility subtitle-2 {
+  @apply font-semibold;
+  font-size: 16px;
+}
+
+@utility body-1 {
+  @apply font-normal;
+  font-size: 16px;
+}
+
+@utility body-2 {
+  @apply font-normal;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+@utility small-1 {
+  @apply font-bold;
+  font-size: 24px;
+}
