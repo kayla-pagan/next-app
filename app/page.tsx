@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main>
       {/* hero section */}
-      <section className="flex flex-col justify-center items-center md:justify-start md:items-start">
+      <section className="flex flex-col justify-center items-center md:justify-start max-w-6xl mx-auto md:items-start">
         <div className="text-center md:text-left">
           <h1 className="header-2 md:header-1">We're more than an answering service</h1>
           <p className="subtitle-2 md:subtitle-1">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
@@ -29,7 +29,7 @@ export default function Home() {
       </section>
 
       {/* services section */}
-      <section>
+      <section className="max-w-6xl mx-auto">
         <h2 className="header-3 md:header-2">Here’s what we can do for your law firm</h2>
         <div className="flex flex-col justify-center items-center md:flex-row">
           <div>
@@ -51,7 +51,7 @@ export default function Home() {
       </section>
 
       {/* data section */}
-      <section className="flex flex-col justify-center items-center md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
         <div>
           <Image src={CrmGraphic} alt="" />
         </div>
@@ -74,7 +74,7 @@ export default function Home() {
       </section>
 
       {/* intake process section */}
-      <section className="flex flex-col justify-center items-center md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
         <div>
           <h2 className="header-2">Design your perfect legal intake process</h2>
           <p className="body-2">
@@ -100,22 +100,24 @@ export default function Home() {
       </section>
 
       {/* blog section */}
-      <section className="flex flex-col justify-center items-center">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto">
         <h2 className="header-2">Want to learn more? Read our articles on legal intake.</h2>
         {/* carousel */}
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
       </section>
 
       {/* form section */}
-      <section className="flex flex-col justify-center items-center md:flex-row">
-        <div>
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
+        <div className="flex-1">
           <h2 className="header-2 md:header-1">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
           <p className="subtitle-1">
             Don’t believe us? Fill out the form on the right, and we’ll take you to our pricing page, where you can find 
             out just how little 24/7 legal intake will cost you.
           </p>
         </div>
-        <form action="">
+        <form action="" className="flex flex-col justify-center align-center flex-1 p-8 w-full">
+          <h3 className="subtitle-1">Tell us about yourself. We’ll show you all of our pricing information on the next page.</h3>
+
           <label htmlFor="firstName">First Name*</label>
           <input type="text" name="firstName" id="firstName" placeholder="First Name*" />
 
