@@ -7,11 +7,11 @@ export default function Home() {
     <main>
       {/* hero section */}
       <section className="flex flex-col justify-center items-center md:justify-start md:items-start">
-        <div>
+        <div className="text-center md:text-left">
           <h1>We're more than an answering service</h1>
           <p>Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
         </div>
-        <div className="flex items-center order-1 md:order-none">
+        <div className="flex items-center order-first md:order-none">
           <p>Excellent 4.84</p>
           <div>
             {/* stars */}
