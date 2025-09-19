@@ -48,7 +48,7 @@ export default function LinkButton({
     external,
     ...linkProps
 }: Props) {
-    const baseStyle = "inline-flex item-center justify-center rounded-[12px]"
+    const baseStyle = "inline-flex item-center justify-center rounded-[12px] leading-none"
     const cls = joinClasses(baseStyle, getVariantStyle(variant), getSizeStyle(size), fullWidth && "w-full", className)
 
     return (

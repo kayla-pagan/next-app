@@ -1,10 +1,15 @@
+"use client";
+
 import Link from "next/link"
 import Image from "next/image"
 import AnsweringLegalLogo from "@/public/answering-legal-logo.png"
 import SearchIcon from "@/public/search-icon.svg"
 import LinkButton from "./LinkButton"
+import { useState } from "react"
 
 export default function Navbar() {
+    const [isOpen, setIsOpen] = useState(false)
+
     return (
         <header className="w-full py-6 px-8 bg-off-white">
             <div className="flex flex-row justify-between items-center gap-2">
@@ -13,7 +18,7 @@ export default function Navbar() {
                     <Image 
                         src={AnsweringLegalLogo} 
                         alt="Answering Legal Logo" 
-                        className="w-sm h-auto"
+                        className="w-2xs h-auto"
                         priority
                     />
                 </Link>
@@ -53,10 +58,28 @@ export default function Navbar() {
                     </LinkButton>
                 </div>
                 {/* Hamburger Icon */}
-                <button className="flex flex-col justify-center items-center lg:hidden">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <button 
+                    className="flex flex-col justify-center items-center lg:hidden" 
+                    onClick={() => setIsOpen(prevOpen => !prevOpen)}
+                >
+                    <span 
+                        className={
+                            `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] 
+                            ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5'}`
+                        }
+                    ></span>
+                    <span
+                        className={
+                            `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] my-0.5 
+                            ${isOpen ? 'hidden' : 'block'}`
+                        }
+                    ></span>
+                    <span
+                        className={
+                            `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] 
+                            ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5'}`
+                        }
+                    ></span>
                 </button>
             </div>
         </header>

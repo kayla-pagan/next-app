@@ -1,6 +1,7 @@
 
 
 import Link from "next/link"
+import LinkButton from "./components/LinkButton"
 
 export default function Home() {
   return (
@@ -18,7 +19,7 @@ export default function Home() {
             <p>based on 230 reviews</p>
           </div>
         </div>
-        <Link href="/pricing">See our pricing</Link>
+        <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
       </section>
     </main>
   )
