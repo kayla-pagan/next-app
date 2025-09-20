@@ -1,4 +1,3 @@
-import { link } from "fs"
 import Link, { LinkProps } from "next/link"
 import type { ReactNode } from "react"
 
@@ -31,11 +30,11 @@ function getVariantStyle(variant: Variant) {
 function getSizeStyle(size:Size) {
     switch(size) {
         case "sm" : 
-            return "p-4 subtitle-2 capitalize"
+            return "px-4 subtitle-2 capitalize"
         case "md" :
-            return "py-[14px] px-4 subtitle-1"
+            return "h-[44px] px-4 gap-2.5 subtitle-1"
         case "lg" :
-            return "py-4 px-6 subtitle-1 capitalize"
+            return "h-[52px] px-6 gap-2.5 subtitle-1 capitalize"
     }
 }
 
@@ -48,7 +47,7 @@ export default function LinkButton({
     external,
     ...linkProps
 }: Props) {
-    const baseStyle = "inline-flex item-center justify-center rounded-[12px] leading-none"
+    const baseStyle = "inline-flex items-center justify-center rounded-[12px] whitespace-nowrap leading-none"
     const cls = joinClasses(baseStyle, getVariantStyle(variant), getSizeStyle(size), fullWidth && "w-full", className)
 
     return (

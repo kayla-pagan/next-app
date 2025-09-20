@@ -51,7 +51,7 @@ export default function Navbar() {
                     <LinkButton 
                         href="/try-for-free" 
                         variant="primary" 
-                        size="sm" 
+                        size="md" 
                         className="shrink-0"
                     >
                             Try for free

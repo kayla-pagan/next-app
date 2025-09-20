@@ -25,7 +25,10 @@ export default function Home() {
             <p>based on 230 reviews</p>
           </div>
         </div>
-        <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
+        {/* mobile button */}
+        <LinkButton href="/pricing" className="md:hidden" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
+        {/* desktop button */}
+        <LinkButton href="/pricing" className="hidden md:inline-flex" variant="primary" size="lg">See our pricing</LinkButton>
       </section>
 
       {/* services section */}
