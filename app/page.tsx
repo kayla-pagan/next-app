@@ -32,9 +32,11 @@ export default function Home() {
       </section>
 
       {/* services section */}
-      <section className="max-w-6xl mx-auto">
-        <h2 className="header-3 md:header-2">Here’s what we can do for your law firm</h2>
-        <div className="flex flex-col justify-center items-center md:flex-row">
+      <section>
+        <h2 className="header-3 pb-2 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2">
+          Here’s what we can do for your law firm
+        </h2>
+        <div className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
           <div>
             <Image src={AnsweringServiceIcon} alt="Answering Service Icon" />
             <h3 className="heading-2">Legal answering service</h3>
