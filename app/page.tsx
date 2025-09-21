@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main>
       {/* hero section mobile */}
-      <section className="flex flex-col h-dvh text-white md:hidden">
+      <section className="flex flex-col text-white md:hidden">
         <div className="flex-none ">
           <Image src={LandingHeroMobbile} alt="Answering Legal Receptionist" className="w-full h-full object-cover" />
         </div>
@@ -71,11 +71,11 @@ export default function Home() {
 
       {/* services section */}
       <section className="py-16 px-4 md:-mt-[250px] md:relative z-10">
-        <h2 className="header-3 text-white pb-3 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2">
+        <h2 className="header-3 text-dark-grey text-pretty pb-3 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2 md:text-white">
           Here’s what we can do for your law firm
         </h2>
-        <div className="flex flex-col justify-between max-w-6xl mx-auto pt-8 md:flex-row">
-          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+        <div className="flex flex-col justify-between gap-8 max-w-6xl mx-auto pt-8 md:flex-row">
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={AnsweringServiceIcon} 
               alt="Answering Service Icon" 
@@ -84,7 +84,7 @@ export default function Home() {
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Legal answering service</h3>
             <p className="subtitle-2 pt-8">With 24/7 legal intake, you’ll never miss a potential client’s call.</p>
           </div>
-          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={ChatbotIcon} 
               alt="Answering Service Icon" 
@@ -93,7 +93,7 @@ export default function Home() {
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">AI intake <span className="block">chatbot</span></h3>
             <p className="subtitle-2 pt-8">Turn web leads into clients with a chatbot powered by the latest in AI technology.</p>
           </div>
-          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={LiveTranslationIcon} 
               alt="Answering Service Icon" 
