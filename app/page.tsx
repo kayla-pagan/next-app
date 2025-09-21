@@ -31,7 +31,7 @@ export default function Home() {
                 <IoMdStar className="text-yellow size-[32px]" />
                 <IoMdStar className="text-yellow size-[32px]" />
               </div>
-              <p className="body-2 font-medium text-center">based on 230 reviews</p>
+              <p className="subtitle-2 text-center">based on 230 reviews</p>
             </div>
           </div>
           <div className="text-center md:text-left">
@@ -44,7 +44,7 @@ export default function Home() {
 
       {/* hero section desktop */}
       <section 
-        className="hidden md:flex flex-col justify-start items-start px-4 pt-12 
+        className="hidden md:flex flex-col justify-start items-start px-4 pt-14 
         bg-[url(/landing-hero.jpg)] bg-center bg-no-repeat bg-cover text-white"
       >
         <div className=" w-full max-w-6xl mx-auto pb-[307px]">
@@ -52,7 +52,7 @@ export default function Home() {
             <h1 className="header-1 leading-[1.2]">We're more than an answering service</h1>
             <p className="subtitle-1 pt-4">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
           </div>
-          <div className="flex flex-col justify-center pt-4 pb-7">
+          <div className="flex flex-col justify-center pt-6 pb-8">
             <p className="header-2 leading-none">Excellent 4.84</p>
             <div>
               <div className="flex justify-start items-center">
