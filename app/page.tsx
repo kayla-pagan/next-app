@@ -8,41 +8,46 @@ import ChatbotIcon from "@/public/chatbot-icon.svg"
 import LiveTranslationIcon from "@/public/live-translation-icon.svg"
 import CrmGraphic from "@/public/crm-graphic.png"
 import ReceptionistImg from "@/public/receptionist-img.png"
+import LandingHeroMobbile from "@/public/landing-hero-mobile.jpg"
 import { IoMdStar } from "react-icons/io";
+import { IoIosCheckmarkCircle } from "react-icons/io";
 
 export default function Home() {
   return (
     <main>
       {/* hero section mobile */}
-      <section className="flex flex-col px-4 h-dvh md:hidden">
-        <div className="flex flex-col justify-center items-center">
-          <div className="flex items-center">
-            <p className="header-3 md:header-2">Excellent 4.84</p>
+      <section className="flex flex-col h-dvh text-white md:hidden">
+        <div className="flex-none ">
+          <Image src={LandingHeroMobbile} alt="Answering Legal Receptionist" className="w-full h-full object-cover" />
+        </div>
+        <div className="flex flex-col gap-2 px-4 py-8 justify-center items-center bg-navy-blue">
+          <div className="flex justify-center items-center flex-wrap gap-6">
+            <p className="header-3">Excellent 4.84</p>
             <div>
               <div className="flex justify-center items-center">
-                <IoMdStar className="text-yellow" />
-                <IoMdStar className="text-yellow" />
-                <IoMdStar className="text-yellow" />
-                <IoMdStar className="text-yellow" />
-                <IoMdStar className="text-yellow" />
+                <IoMdStar className="text-yellow size-[32px]" />
+                <IoMdStar className="text-yellow size-[32px]" />
+                <IoMdStar className="text-yellow size-[32px]" />
+                <IoMdStar className="text-yellow size-[32px]" />
+                <IoMdStar className="text-yellow size-[32px]" />
               </div>
-              <p>based on 230 reviews</p>
+              <p className="body-2 font-medium text-center">based on 230 reviews</p>
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h1 className="header-2 md:header-1">We're more than an answering service</h1>
-            <p className="subtitle-2 md:subtitle-1">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
+            <h1 className="header-2 text-balance">We're more than an answering service</h1>
+            <p className="subtitle-2 text-pretty py-3">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
           </div>
-          <LinkButton href="/pricing" className="md:hidden" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
+          <LinkButton href="/pricing" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
         </div>
       </section>
 
       {/* hero section desktop */}
       <section 
-        className="hidden md:flex flex-col justify-start items-start px-4 min-h-dvh pt-8 
+        className="hidden md:flex flex-col justify-start items-start px-4 pt-12 
         bg-[url(/landing-hero.jpg)] bg-center bg-no-repeat bg-cover text-white"
       >
-        <div className=" w-full max-w-6xl mx-auto pb-[350px]">
+        <div className=" w-full max-w-6xl mx-auto pb-[307px]">
           <div className="text-left max-w-2xl">
             <h1 className="header-1 leading-[1.2]">We're more than an answering service</h1>
             <p className="subtitle-1 pt-4">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
@@ -57,15 +62,15 @@ export default function Home() {
                 <IoMdStar className="text-yellow size-[48px]" />
                 <IoMdStar className="text-yellow size-[48px]" />
               </div>
-              <p className="body-2">based on 230 reviews</p>
+              <p className="body-2 font-medium">based on 230 reviews</p>
             </div>
           </div>
-          <LinkButton href="/pricing" className="hidden md:inline-flex" variant="primary" size="lg">See our pricing</LinkButton>
+          <LinkButton href="/pricing" className="shadow-[2px_2px_4px_rgba(0,0,0,0.25)]" variant="primary" size="lg">See our pricing</LinkButton>
         </div>
       </section>
 
       {/* services section */}
-      <section className="py-16 px-4 -mt-[250px]">
+      <section className="py-16 px-4 md:-mt-[250px] md:relative z-10">
         <h2 className="header-3 text-white pb-3 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2">
           Here’s what we can do for your law firm
         </h2>
@@ -77,7 +82,7 @@ export default function Home() {
               className="size-[100px] mx-auto"  
             />
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Legal answering service</h3>
-            <p className="subtitle-2">With 24/7 legal intake, you’ll never miss a potential client’s call.</p>
+            <p className="subtitle-2 pt-8">With 24/7 legal intake, you’ll never miss a potential client’s call.</p>
           </div>
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
             <Image 
@@ -85,8 +90,8 @@ export default function Home() {
               alt="Answering Service Icon" 
               className="size-[100px] mx-auto"
             />
-            <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">AI intake chatbot</h3>
-            <p className="subtitle-2">Turn web leads into clients with a chatbot powered by the latest in AI technology.</p>
+            <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">AI intake <span className="block">chatbot</span></h3>
+            <p className="subtitle-2 pt-8">Turn web leads into clients with a chatbot powered by the latest in AI technology.</p>
           </div>
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
             <Image 
@@ -95,27 +100,34 @@ export default function Home() {
               className="size-[100px] mx-auto"
             />
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Live translation services</h3>
-            <p className="subtitle-2">Break through the language barrier and schedule video conferences with live interpreters.</p>
+            <p className="subtitle-2 pt-8">Break through the language barrier and schedule video conferences with live interpreters.</p>
           </div>
         </div>
       </section>
 
       {/* data section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
-        <div>
-          <Image src={CrmGraphic} alt="" />
+      <section className="flex flex-col justify-between max-w-6xl mx-auto py-16 md:flex-row">
+        <div className="basis-[48%]">
+          <Image 
+            src={CrmGraphic} 
+            alt="" 
+            className="w-xl h-[453px] min-w-sm max-w-lg"
+          />
         </div>
-        <div>
-          <h2 className="header-2">Your data’s in good hands</h2>
-          <p className="body-2">Our partnership with your CRM enables a seamless flow of information.</p>
-          <ul>
-            <li className="body-1">
+        <div className="basis-[48%] pt-6">
+          <h2 className="header-2 pb-4 border-b-2 border-teal">Your data’s in good hands</h2>
+          <p className="body-2 pt-4">Our partnership with your CRM enables a seamless flow of information.</p>
+          <ul className="pt-4 pb-6">
+            <li className="body-1 flex items-center gap-2 pb-4">
+              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" /> 
               Answering Legal’s receptionists take down exactly the information you need.
             </li>
-            <li className="body-1">
+            <li className="body-1 flex items-center gap-2 pb-4">
+              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" />
               Through native API integrations with our proprietary software, we make sure it’s immediately where you need it to be.
             </li>
-            <li>
+            <li className="body-1 flex items-center gap-2">
+              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" />
               All you’ll have to do is open your CRM and follow up to secure your new client’s business.
             </li>
           </ul>
@@ -124,28 +136,21 @@ export default function Home() {
       </section>
 
       {/* intake process section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
-        <div>
-          <h2 className="header-2">Design your perfect legal intake process</h2>
-          <p className="body-2">
+      <section className="flex flex-col justify-between items-center max-w-6xl mx-auto py-16 md:flex-row">
+        <div className="basis-[48%]">
+          <h2 className="header-2 pb-4 border-b-2 border-teal text-pretty">Design your perfect legal intake process</h2>
+          <p className="body-2 pt-4 pb-6">
             Get everything you need out of every new client call. The virtual receptionists at our legal intake call center will use 
             your unique specifications to perform a legal intake for every new client caller.
           </p>
-          <ul>
-            <li className="body-1">
-              Answering Legal’s receptionists take down exactly the information you need.
-            </li>
-            <li className="body-1">
-              Through native API integrations with our proprietary software, we make sure it’s immediately where you need it to be.
-            </li>
-            <li>
-              All you’ll have to do is open your CRM and follow up to secure your new client’s business.
-            </li>
-          </ul>
           <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
         </div>
-        <div>
-          <Image src={ReceptionistImg} alt="" />
+        <div className="basis-[48%]">
+          <Image 
+            src={ReceptionistImg} 
+            alt="" 
+            className="w-full h-full object-cover"
+          />
         </div>
       </section>
 
