@@ -11,7 +11,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <header className="w-full py-6 px-8 bg-off-white">
+        <header className="w-full py-2 px-8 bg-off-white">
             <div className="flex flex-row justify-between items-center gap-2">
                 {/* Logo */}
                 <Link href="/">
