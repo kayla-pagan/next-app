@@ -70,11 +70,11 @@ export default function Home() {
       </section>
 
       {/* services section */}
-      <section className="py-16 px-4 md:-mt-[250px] md:relative z-10">
+      <section className="py-12 px-4 md:py-16 md:-mt-[250px] md:relative z-10">
         <h2 className="header-3 text-dark-grey text-pretty pb-3 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2 md:text-white">
           Here’s what we can do for your law firm
         </h2>
-        <div className="flex flex-col justify-between gap-8 max-w-6xl mx-auto pt-8 md:flex-row">
+        <div className="flex flex-col justify-between gap-8 max-w-6xl mx-auto pt-8 md:flex-row md:gap-0">
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={AnsweringServiceIcon} 
@@ -106,15 +106,15 @@ export default function Home() {
       </section>
 
       {/* data section */}
-      <section className="flex flex-col justify-between max-w-6xl mx-auto py-16 md:flex-row">
-        <div className="basis-[48%]">
+      <section className="flex flex-col justify-between items-center max-w-6xl mx-auto px-4 py-12 md:py-16 md:flex-row md:px-0">
+        <div className="basis-[50%]">
           <Image 
             src={CrmGraphic} 
             alt="" 
-            className="w-xl h-[453px] min-w-sm max-w-lg"
+            className="w-full h-auto px-6 pb-12 md:pb-0 md:px-4 md:object-contain"
           />
         </div>
-        <div className="basis-[48%] pt-6">
+        <div className="basis-[50%] md:px-6">
           <h2 className="header-2 pb-4 border-b-2 border-teal">Your data’s in good hands</h2>
           <p className="body-2 pt-4">Our partnership with your CRM enables a seamless flow of information.</p>
           <ul className="pt-4 pb-6">
@@ -136,8 +136,8 @@ export default function Home() {
       </section>
 
       {/* intake process section */}
-      <section className="flex flex-col justify-between items-center max-w-6xl mx-auto py-16 md:flex-row">
-        <div className="basis-[48%]">
+      <section className="flex flex-col justify-between items-center max-w-6xl mx-auto px-4 py-12 md:py-16 md:flex-row">
+        <div className="basis-[50%] md:px-3">
           <h2 className="header-2 pb-4 border-b-2 border-teal text-pretty">Design your perfect legal intake process</h2>
           <p className="body-2 pt-4 pb-6">
             Get everything you need out of every new client call. The virtual receptionists at our legal intake call center will use 
@@ -145,24 +145,24 @@ export default function Home() {
           </p>
           <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
         </div>
-        <div className="basis-[48%]">
+        <div className="basis-[50%] order-first md:order-none">
           <Image 
             src={ReceptionistImg} 
             alt="" 
-            className="w-full h-full object-cover"
+            className="w-full h-auto px-6 pb-12 md:pb-0 md:px-4 md:object-contain"
           />
         </div>
       </section>
 
       {/* blog section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16">
         <h2 className="header-2">Want to learn more? Read our articles on legal intake.</h2>
         {/* carousel */}
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
       </section>
 
       {/* form section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16 md:flex-row">
         <div className="flex-1">
           <h2 className="header-2 md:header-1">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
           <p className="subtitle-1">
