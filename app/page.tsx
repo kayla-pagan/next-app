@@ -17,8 +17,15 @@ export default function Home() {
     <main>
       {/* hero section mobile */}
       <section className="flex flex-col text-white md:hidden">
-        <div className="flex-none ">
-          <Image src={LandingHeroMobbile} alt="Answering Legal Receptionist" className="w-full h-full object-cover" />
+        <div className="relative h-[350px] w-full">
+          <Image 
+            src={LandingHeroMobbile} 
+            alt="Answering Legal - Receptionist wearing a headset"
+            width={856}
+            height={706}
+            priority
+            className="absolute inset-0 w-full h-full object-cover" 
+          />
         </div>
         <div className="flex flex-col gap-2 px-4 py-8 justify-center items-center bg-navy-blue">
           <div className="flex justify-center items-center flex-wrap gap-6">
@@ -78,7 +85,7 @@ export default function Home() {
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={AnsweringServiceIcon} 
-              alt="Answering Service Icon" 
+              alt=""  
               className="size-[100px] mx-auto"  
             />
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Legal answering service</h3>
@@ -87,7 +94,7 @@ export default function Home() {
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={ChatbotIcon} 
-              alt="Answering Service Icon" 
+              alt="" 
               className="size-[100px] mx-auto"
             />
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">AI intake <span className="block">chatbot</span></h3>
@@ -96,7 +103,7 @@ export default function Home() {
           <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_7px_rgba(0,0,0,0.6)]">
             <Image 
               src={LiveTranslationIcon} 
-              alt="Answering Service Icon" 
+              alt="" 
               className="size-[100px] mx-auto"
             />
             <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Live translation services</h3>
@@ -107,27 +114,29 @@ export default function Home() {
 
       {/* data section */}
       <section className="flex flex-col justify-between items-center max-w-6xl mx-auto px-4 py-12 md:py-16 md:flex-row md:px-0">
-        <div className="basis-[50%]">
+        <div className="w-full h-[450px] basis-[50%]">
           <Image 
             src={CrmGraphic} 
             alt="" 
-            className="w-full h-auto px-6 pb-12 md:pb-0 md:px-4 md:object-contain"
+            width={1040}
+            height={900}
+            className="w-full h-full object-contain px-6 pb-12 md:pb-0"
           />
         </div>
-        <div className="basis-[50%] md:px-6">
+        <div className="basis-[50%] md:px-3">
           <h2 className="header-2 pb-4 border-b-2 border-teal">Your data’s in good hands</h2>
           <p className="body-2 pt-4">Our partnership with your CRM enables a seamless flow of information.</p>
           <ul className="pt-4 pb-6">
             <li className="body-1 flex items-center gap-2 pb-4">
-              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" /> 
+              <IoIosCheckmarkCircle aria-hidden="true" focusable="false" className="text-blue size-[40px] flex-none" /> 
               Answering Legal’s receptionists take down exactly the information you need.
             </li>
             <li className="body-1 flex items-center gap-2 pb-4">
-              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" />
+              <IoIosCheckmarkCircle aria-hidden="true" focusable="false" className="text-blue size-[40px] flex-none" />
               Through native API integrations with our proprietary software, we make sure it’s immediately where you need it to be.
             </li>
             <li className="body-1 flex items-center gap-2">
-              <IoIosCheckmarkCircle className="text-blue size-[40px] flex-none" />
+              <IoIosCheckmarkCircle aria-hidden="true" focusable="false" className="text-blue size-[40px] flex-none" />
               All you’ll have to do is open your CRM and follow up to secure your new client’s business.
             </li>
           </ul>
@@ -145,18 +154,20 @@ export default function Home() {
           </p>
           <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
         </div>
-        <div className="basis-[50%] order-first md:order-none">
+        <div className="w-full h-[450px] basis-[50%] order-first md:order-none">
           <Image 
             src={ReceptionistImg} 
             alt="" 
-            className="w-full h-auto px-6 pb-12 md:pb-0 md:px-4 md:object-contain"
+            width={800}
+            height={728}
+            className="w-full h-full object-contain px-6 pb-12 md:pb-0"
           />
         </div>
       </section>
 
       {/* blog section */}
       <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16">
-        <h2 className="header-2">Want to learn more? Read our articles on legal intake.</h2>
+        <h2 className="header-2 text-center">Want to learn more? Read our articles on legal intake.</h2>
         {/* carousel */}
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
       </section>
