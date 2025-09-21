@@ -8,55 +8,100 @@ import ChatbotIcon from "@/public/chatbot-icon.svg"
 import LiveTranslationIcon from "@/public/live-translation-icon.svg"
 import CrmGraphic from "@/public/crm-graphic.png"
 import ReceptionistImg from "@/public/receptionist-img.png"
+import { IoMdStar } from "react-icons/io";
 
 export default function Home() {
   return (
     <main>
-      {/* hero section */}
-      <section className="flex flex-col justify-center items-center md:justify-start max-w-6xl mx-auto md:items-start">
-        <div className="text-center md:text-left">
-          <h1 className="header-2 md:header-1">We're more than an answering service</h1>
-          <p className="subtitle-2 md:subtitle-1">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
-        </div>
-        <div className="flex items-center order-first md:order-none">
-          <p className="header-3 md:header-2">Excellent 4.84</p>
-          <div>
-            {/* stars */}
-            <p>based on 230 reviews</p>
+      {/* hero section mobile */}
+      <section className="flex flex-col px-4 h-dvh md:hidden">
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex items-center">
+            <p className="header-3 md:header-2">Excellent 4.84</p>
+            <div>
+              <div className="flex justify-center items-center">
+                <IoMdStar className="text-yellow" />
+                <IoMdStar className="text-yellow" />
+                <IoMdStar className="text-yellow" />
+                <IoMdStar className="text-yellow" />
+                <IoMdStar className="text-yellow" />
+              </div>
+              <p>based on 230 reviews</p>
+            </div>
           </div>
+          <div className="text-center md:text-left">
+            <h1 className="header-2 md:header-1">We're more than an answering service</h1>
+            <p className="subtitle-2 md:subtitle-1">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
+          </div>
+          <LinkButton href="/pricing" className="md:hidden" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
         </div>
-        {/* mobile button */}
-        <LinkButton href="/pricing" className="md:hidden" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
-        {/* desktop button */}
-        <LinkButton href="/pricing" className="hidden md:inline-flex" variant="primary" size="lg">See our pricing</LinkButton>
+      </section>
+
+      {/* hero section desktop */}
+      <section 
+        className="hidden md:flex flex-col justify-start items-start px-4 min-h-dvh pt-8 
+        bg-[url(/landing-hero.jpg)] bg-center bg-no-repeat bg-cover text-white"
+      >
+        <div className=" w-full max-w-6xl mx-auto pb-[350px]">
+          <div className="text-left max-w-2xl">
+            <h1 className="header-1 leading-[1.2]">We're more than an answering service</h1>
+            <p className="subtitle-1 pt-4">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
+          </div>
+          <div className="flex flex-col justify-center pt-4 pb-7">
+            <p className="header-2 leading-none">Excellent 4.84</p>
+            <div>
+              <div className="flex justify-start items-center">
+                <IoMdStar className="text-yellow size-[48px]" />
+                <IoMdStar className="text-yellow size-[48px]" />
+                <IoMdStar className="text-yellow size-[48px]" />
+                <IoMdStar className="text-yellow size-[48px]" />
+                <IoMdStar className="text-yellow size-[48px]" />
+              </div>
+              <p className="body-2">based on 230 reviews</p>
+            </div>
+          </div>
+          <LinkButton href="/pricing" className="hidden md:inline-flex" variant="primary" size="lg">See our pricing</LinkButton>
+        </div>
       </section>
 
       {/* services section */}
-      <section>
-        <h2 className="header-3 pb-2 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2">
+      <section className="py-16 px-4 -mt-[250px]">
+        <h2 className="header-3 text-white pb-3 border-b-2 border-teal text-center max-w-7xl mx-auto md:header-2">
           Here’s what we can do for your law firm
         </h2>
-        <div className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
-          <div>
-            <Image src={AnsweringServiceIcon} alt="Answering Service Icon" />
-            <h3 className="heading-2">Legal answering service</h3>
+        <div className="flex flex-col justify-between max-w-6xl mx-auto pt-8 md:flex-row">
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+            <Image 
+              src={AnsweringServiceIcon} 
+              alt="Answering Service Icon" 
+              className="size-[100px] mx-auto"  
+            />
+            <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Legal answering service</h3>
             <p className="subtitle-2">With 24/7 legal intake, you’ll never miss a potential client’s call.</p>
           </div>
-          <div>
-            <Image src={ChatbotIcon} alt="Answering Service Icon" />
-            <h3 className="heading-2">AI intake chatbot</h3>
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+            <Image 
+              src={ChatbotIcon} 
+              alt="Answering Service Icon" 
+              className="size-[100px] mx-auto"
+            />
+            <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">AI intake chatbot</h3>
             <p className="subtitle-2">Turn web leads into clients with a chatbot powered by the latest in AI technology.</p>
           </div>
-          <div>
-            <Image src={LiveTranslationIcon} alt="Answering Service Icon" />
-            <h3 className="heading-2">Live translation services</h3>
+          <div className="bg-white p-8 basis-[31.5%] text-center rounded-2xl shadow-[2px_2px_4px_rgba(0,0,0,0.25)]">
+            <Image 
+              src={LiveTranslationIcon} 
+              alt="Answering Service Icon" 
+              className="size-[100px] mx-auto"
+            />
+            <h3 className="header-2 py-6 text-balance pb-4 border-b-2 border-teal">Live translation services</h3>
             <p className="subtitle-2">Break through the language barrier and schedule video conferences with live interpreters.</p>
           </div>
         </div>
       </section>
 
       {/* data section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
         <div>
           <Image src={CrmGraphic} alt="" />
         </div>
@@ -79,7 +124,7 @@ export default function Home() {
       </section>
 
       {/* intake process section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
         <div>
           <h2 className="header-2">Design your perfect legal intake process</h2>
           <p className="body-2">
@@ -105,14 +150,14 @@ export default function Home() {
       </section>
 
       {/* blog section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16">
         <h2 className="header-2">Want to learn more? Read our articles on legal intake.</h2>
         {/* carousel */}
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
       </section>
 
       {/* form section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto md:flex-row">
+      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-16 md:flex-row">
         <div className="flex-1">
           <h2 className="header-2 md:header-1">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
           <p className="subtitle-1">

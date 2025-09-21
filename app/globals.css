@@ -6,6 +6,7 @@
 }
 
 @theme {
+  --color-yellow: #FFA130;
   --color-navy-blue: #161641;
   --color-dark-blue: #162B53;
   --color-blue: #0360E6;
@@ -21,31 +22,37 @@
 @utility header-1 {
   @apply font-bold;
   font-size: 48px;
+  line-height: 1.2;
 }
 
 @utility header-2 {
   @apply font-bold;
   font-size: 32px;
+  line-height: 1.2;
 }
 
 @utility header-3 {
   @apply font-bold;
   font-size: 24px;
+  line-height: 1.2;
 }
 
 @utility subtitle-1 {
   @apply font-semibold;
   font-size: 24px;
+  line-height: 1.2;
 }
 
 @utility subtitle-2 {
   @apply font-semibold;
   font-size: 16px;
+  line-height: 1.2;
 }
 
 @utility body-1 {
   @apply font-normal;
   font-size: 16px;
+  line-height: 1.2;
 }
 
 @utility body-2 {
@@ -57,4 +64,5 @@
 @utility small-1 {
   @apply font-bold;
   font-size: 24px;
+  line-height: 1.2;
 }

@@ -30,7 +30,7 @@ function getVariantStyle(variant: Variant) {
 function getSizeStyle(size:Size) {
     switch(size) {
         case "sm" : 
-            return "px-4 subtitle-2 capitalize"
+            return "h-[43px] px-4 subtitle-2 capitalize"
         case "md" :
             return "h-[44px] px-4 gap-2.5 subtitle-1"
         case "lg" :
