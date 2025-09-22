@@ -12,18 +12,13 @@ import LandingHeroMobbile from "@/public/landing-hero-mobile.jpg"
 import { IoMdStar } from "react-icons/io";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Carousel from "./components/Carousel"
-import { articles } from "@/app/data/articles"
+import { Article, articles } from "@/app/data/articles"
 
 export default function Home() {
-  const articleElements = articles.map(article => (
+  const articleElements = articles.map((article: Article) => (
     <ArticleCard 
       key={article.id} 
-      id={article.id} 
-      title={article.title}
-      description={article.description}
-      image={article.image}
-      category={article.category}
-      dateAdded={article.dateAdded}
+      article={article}
       
     />
   ))

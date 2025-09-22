@@ -57,7 +57,7 @@ export default function Carousel({
             <div className="flex justify-center items-center gap-16 pt-8 pb-2 w-full xl:py-0 xl:gap-0">
                 <button 
                     className="embla__prev xl:absolute -left-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
-                                p-1 border border-2 border-gray rounded-full disabled:opacity-50" 
+                                p-1 border border-2 border-gray rounded-full hover:bg-off-white disabled:opacity-50" 
                     onClick={scrollPrev}
                     disabled={!canPrev}
                 >
@@ -65,7 +65,7 @@ export default function Carousel({
                 </button>
                 <button 
                     className="embla__next xl:absolute -right-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
-                                p-1 border border-2 border-gray rounded-full disabled:opacity-50" 
+                                p-1 border border-2 border-gray rounded-full hover:bg-off-white disabled:opacity-50" 
                     onClick={scrollNext}
                     disabled={!canNext}
                 >
