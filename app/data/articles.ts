@@ -1,4 +1,4 @@
-type Post = {
+export type Article = {
     id: string;
     title: string;
     description: string;
@@ -7,7 +7,7 @@ type Post = {
     dateAdded: string;
 }
 
-export const posts: Post[] = [
+export const articles: Article[] = [
     {
         "id": "1",
         "title": "How Viable Is Remote Work For Lawyers?",
