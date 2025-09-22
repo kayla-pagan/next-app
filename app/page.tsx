@@ -1,6 +1,7 @@
 
 
 import LinkButton from "./components/LinkButton"
+import ArticleCard from "./components/ArticleCard"
 import Image from "next/image"
 import AnsweringServiceIcon from "@/public/answering-service-icon.svg"
 import ChatbotIcon from "@/public/chatbot-icon.svg"
@@ -11,8 +12,22 @@ import LandingHeroMobbile from "@/public/landing-hero-mobile.jpg"
 import { IoMdStar } from "react-icons/io";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Carousel from "./components/Carousel"
+import { articles } from "@/app/data/articles"
 
 export default function Home() {
+  const articleElements = articles.map(article => (
+    <ArticleCard 
+      key={article.id} 
+      id={article.id} 
+      title={article.title}
+      description={article.description}
+      image={article.image}
+      category={article.category}
+      dateAdded={article.dateAdded}
+      
+    />
+  ))
+
   return (
     <main>
       {/* hero section mobile */}
@@ -168,7 +183,9 @@ export default function Home() {
       {/* blog section */}
       <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16">
         <h2 className="header-2 text-center">Want to learn more? Read our articles on legal intake.</h2>
-        <Carousel />
+        <Carousel loop={false} gapClassName="gap-4" mdBasisClassName="basis-1/3">
+          {articleElements}
+        </Carousel>
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
       </section>
 
