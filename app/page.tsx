@@ -253,7 +253,7 @@ export default function Home() {
       {/* form section */}
       <section className="bg-navy-blue">
         <div className="w-full flex flex-col justify-center items-center max-w-6xl mx-auto px-4 py-12 md:py-16 md:flex-row">
-          <div className="flex-1 text-white">
+          <div className="flex-1 text-white pb-16 md:pb-0">
             <h2 className="header-2 md:header-1 pb-8">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
             <p className="subtitle-1">
               Don’t believe us? Fill out the form on the right, and we’ll take you to our pricing page, where you can find 
