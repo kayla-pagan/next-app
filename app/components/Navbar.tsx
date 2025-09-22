@@ -1,6 +1,7 @@
 "use client";
 
-import Link, { LinkProps } from "next/link"
+import Link from "next/link"
+import Form from "next/form"
 import Image from "next/image"
 import AnsweringLegalLogo from "@/public/answering-legal-logo.png"
 import SearchIcon from "@/public/search-icon.svg"
@@ -47,6 +48,7 @@ export default function Navbar() {
                                             data-[active=true]:after:scale-x-100`}
                                 data-active={isActive === "/products"}
                                 onClick={(e) => {e.preventDefault(); toggleActive("/products");}}
+                                aria-expanded={isActive === "/products"}
                             >
                                     Products {isActive === "/products" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                             </Link>
@@ -61,6 +63,7 @@ export default function Navbar() {
                                             data-[active=true]:after:scale-x-100`}
                                 data-active={isActive === "/about"}
                                 onClick={(e) => {e.preventDefault(); toggleActive("/about");}}
+                                aria-expanded={isActive === "/about"}
                             >
                                 About {isActive === "/about" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                             </Link>
@@ -75,6 +78,7 @@ export default function Navbar() {
                                             data-[active=true]:after:scale-x-100`}
                                 data-active={isActive === "/resources"}
                                 onClick={(e) => {e.preventDefault(); toggleActive("/resources");}}
+                                aria-expanded={isActive === "/resources"}
                             >
                                 Resources {isActive === "/resources" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
                             </Link>
@@ -108,12 +112,17 @@ export default function Navbar() {
                                 />
                             </button>
                             {showSearch && 
-                                <input 
-                                    id="search-input" 
-                                    type="text" 
-                                    placeholder="Search" 
-                                    className="text-xl py-0.25 border-b border-gray max-w-[150px]" 
-                                />
+                                <Form action="/">
+                                    <label htmlFor="search-input" className="sr-only">Search</label>
+                                    <input 
+                                        id="search-input" 
+                                        name="search"
+                                        type="text" 
+                                        placeholder="Search" 
+                                        className="text-xl py-0.25 border-b border-gray max-w-[150px]" 
+                                        autoComplete="off"
+                                    />
+                                </Form>
                             }
                         </div>
                         <LinkButton 
@@ -121,6 +130,7 @@ export default function Navbar() {
                             variant="primary" 
                             size="md" 
                             className="shrink-0"
+                            external={false}
                         >
                                 Try for free
                         </LinkButton>
@@ -130,6 +140,8 @@ export default function Navbar() {
                 <button 
                     className="flex flex-col justify-center items-center xl:hidden" 
                     onClick={() => setIsOpen(prevOpen => !prevOpen)}
+                    aria-label="Toggle mobile navigation mene"
+                    aria-expanded={isOpen}
                 >
                     <span 
                         className={

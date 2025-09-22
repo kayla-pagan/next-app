@@ -60,6 +60,7 @@ export default function Carousel({
                                 p-1 border border-2 border-gray rounded-full hover:bg-off-white disabled:opacity-50" 
                     onClick={scrollPrev}
                     disabled={!canPrev}
+                    aria-label="Previous articles"
                 >
                     <PiCaretLeft className="w-10 h-auto text-navy-blue" />
                 </button>
@@ -68,11 +69,12 @@ export default function Carousel({
                                 p-1 border border-2 border-gray rounded-full hover:bg-off-white disabled:opacity-50" 
                     onClick={scrollNext}
                     disabled={!canNext}
+                    aria-label="Next articles"
                 >
                     <PiCaretRight className="w-10 h-auto text-navy-blue" />
                 </button>
             </div>
-            <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+            <div className="embla__viewport overflow-hidden" ref={emblaRef} role="region" aria-label="Articles Carousel">
                 <div className={`embla__container flex -mx-2.15 my-2.5`}>
                     {Children.toArray(children).map((child, i) => {
                         const key = isValidElement(child) && child.key !== null ? child.key : i

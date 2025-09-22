@@ -1,5 +1,7 @@
+"use client";
 
-
+import Form from "next/form"
+import { useState } from "react"
 import LinkButton from "./components/LinkButton"
 import ArticleCard from "./components/ArticleCard"
 import Image from "next/image"
@@ -13,8 +15,12 @@ import { IoMdStar } from "react-icons/io";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import Carousel from "./components/Carousel"
 import { Article, articles } from "@/app/data/articles"
+import { delay, validateForm, ValidationRules } from "./lib/api"
 
 export default function Home() {
+  const [status, setStatus] = useState<"idle" | "saving" | "done">("idle")
+  const [errors, setErrors] = useState<Record<string, string>>({})
+
   const articleElements = articles.map((article: Article) => (
     <ArticleCard 
       key={article.id} 
@@ -22,6 +28,57 @@ export default function Home() {
       
     />
   ))
+
+  const validationRules: ValidationRules = {
+    firstName: {
+      required: true,
+      pattern: /^[a-zA-Z]{2,30}$/,
+      label: "First Name",
+      message: "First name must be 2-30 letters"
+    },
+    lastName: {
+      required: true,
+      pattern: /^[a-zA-Z]{2,30}$/,
+      label: "Last Name",
+      message: "First name must be 2-30 letters"
+    },
+    companyName: {
+      required: true,
+      pattern: /^[a-zA-Z\s]{2,50}$/,
+      label: "Company Name",
+      message: "First name must be 2-50 letters"
+    },
+    email: {
+      required: true,
+      pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+      label: "Email",
+      message: "Please enter a valid email address"
+    },
+    cellPhone: {
+      required: true,
+      pattern: /^\+?[\d\s\-\(\)]{10,15}$/,
+      label: "Cell Phone",
+      message: "Please enter a valid phone number"
+    }
+  }
+
+  const invalidLabels = Object.keys(errors).map(field => validationRules[field]?.label ?? field).join(", ")
+
+  async function handleSubmit(formData: FormData) {
+    setStatus("saving")
+    setErrors({})
+
+    const { errors: fieldErrors, isValid } = await validateForm(formData, validationRules)
+
+    if(!isValid) {
+      setStatus("idle")
+      setErrors(fieldErrors)
+      return
+    }
+
+    await delay(600)
+    setStatus("done")
+  }
 
   return (
     <main>
@@ -42,11 +99,11 @@ export default function Home() {
             <p className="header-3">Excellent 4.84</p>
             <div>
               <div className="flex justify-center items-center">
-                <IoMdStar className="text-yellow size-[32px]" />
-                <IoMdStar className="text-yellow size-[32px]" />
-                <IoMdStar className="text-yellow size-[32px]" />
-                <IoMdStar className="text-yellow size-[32px]" />
-                <IoMdStar className="text-yellow size-[32px]" />
+                <IoMdStar className="text-yellow size-[32px]" aria-hidden="true" focusable="false" />
+                <IoMdStar className="text-yellow size-[32px]" aria-hidden="true" focusable="false" />
+                <IoMdStar className="text-yellow size-[32px]" aria-hidden="true" focusable="false" />
+                <IoMdStar className="text-yellow size-[32px]" aria-hidden="true" focusable="false" />
+                <IoMdStar className="text-yellow size-[32px]" aria-hidden="true" focusable="false" />
               </div>
               <p className="subtitle-2 text-center">based on 230 reviews</p>
             </div>
@@ -55,7 +112,7 @@ export default function Home() {
             <h1 className="header-2 text-balance">We're more than an answering service</h1>
             <p className="subtitle-2 text-pretty py-3">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
           </div>
-          <LinkButton href="/pricing" variant="primary" size="sm" fullWidth>See our pricing</LinkButton>
+          <LinkButton href="/pricing" variant="primary" size="sm" fullWidth external={false}>See our pricing</LinkButton>
         </div>
       </section>
 
@@ -82,7 +139,15 @@ export default function Home() {
               <p className="body-2 font-medium">based on 230 reviews</p>
             </div>
           </div>
-          <LinkButton href="/pricing" className="shadow-[2px_2px_4px_rgba(0,0,0,0.25)]" variant="primary" size="lg">See our pricing</LinkButton>
+          <LinkButton 
+            href="/pricing" 
+            className="shadow-[2px_2px_4px_rgba(0,0,0,0.25)]" 
+            variant="primary" 
+            size="lg"
+            external={false}
+            >
+              See our pricing
+            </LinkButton>
         </div>
       </section>
 
@@ -127,7 +192,7 @@ export default function Home() {
         <div className="w-full h-[450px] basis-[50%]">
           <Image 
             src={CrmGraphic} 
-            alt="" 
+            alt="A graphic showing call data being securely integrated with a CRM dashboard." 
             width={1040}
             height={900}
             className="w-full h-full object-contain px-6 pb-12 md:pb-0"
@@ -138,7 +203,8 @@ export default function Home() {
           <p className="body-2 pt-4">Our partnership with your CRM enables a seamless flow of information.</p>
           <ul className="pt-4 pb-6">
             <li className="body-1 flex items-center gap-2 pb-4">
-              <IoIosCheckmarkCircle aria-hidden="true" focusable="false" className="text-blue size-[40px] flex-none" /> 
+              <IoIosCheckmarkCircle 
+                aria-hidden="true" focusable="false" className="text-blue size-[40px] flex-none" /> 
               Answering Legal’s receptionists take down exactly the information you need.
             </li>
             <li className="body-1 flex items-center gap-2 pb-4">
@@ -150,7 +216,7 @@ export default function Home() {
               All you’ll have to do is open your CRM and follow up to secure your new client’s business.
             </li>
           </ul>
-          <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
+          <LinkButton href="/pricing" variant="primary" size="lg" external={false}>See our pricing</LinkButton>
         </div>
       </section>
 
@@ -162,12 +228,12 @@ export default function Home() {
             Get everything you need out of every new client call. The virtual receptionists at our legal intake call center will use 
             your unique specifications to perform a legal intake for every new client caller.
           </p>
-          <LinkButton href="/pricing" variant="primary" size="lg">See our pricing</LinkButton>
+          <LinkButton href="/pricing" variant="primary" size="lg" external={false}>See our pricing</LinkButton>
         </div>
         <div className="w-full h-[450px] basis-[50%] order-first md:order-none">
           <Image 
             src={ReceptionistImg} 
-            alt="" 
+            alt="A professional Answering Legal receptionist taking new client calls." 
             width={800}
             height={728}
             className="w-full h-full object-contain px-6 pb-12 md:pb-0"
@@ -181,7 +247,7 @@ export default function Home() {
         <Carousel loop={false} slidePadding="px-3.5" breakpointBasisClassName="min-[850px]:basis-1/3">
           {articleElements}
         </Carousel>
-        <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>
+        <LinkButton href="/blog" variant="primary" size="lg" external={false}>Go to blog</LinkButton>
       </section>
 
       {/* form section */}
@@ -194,10 +260,32 @@ export default function Home() {
               out just how little 24/7 legal intake will cost you.
             </p>
           </div>
-          <form action="" className="bg-white rounded-xl flex flex-col justify-center align-center flex-1 p-8 w-full">
+          <Form 
+            action={handleSubmit} 
+            id="home-lead-form"
+            className="bg-white rounded-xl flex flex-col justify-center align-center flex-1 p-8 w-full"
+            noValidate
+          >
+            <div role="status" aria-live="polite" className="sr-only">
+              {status === "saving" && "Submitting your form..."}
+              {status === "done" && "Thank you for your submission. You will now be redirected to the pricing page"}
+            </div>
             <h3 className="subtitle-1 text-navy-blue">
               Tell us about yourself. We’ll show you all of our pricing information on the next page.
             </h3>
+
+            {invalidLabels && Object.keys(errors).length > 0 && (
+              <p className="subtitle-2 font-normal text-red pt-4">
+                Please fill in a valid value for all required fields <br />
+                Fields: <span className="font-semibold">{invalidLabels}</span>
+              </p>
+            )}
+
+            {status === "done" && (
+              <p className="subtitle-2 font-normal text-green-600 pt-4">
+                Thank you for your submission. You will now be redirected to the pricing page.
+              </p>
+            )}
 
             <div className="flex flex-col gap-6 py-8">
               <div>
@@ -207,9 +295,15 @@ export default function Home() {
                   name="firstName" 
                   id="firstName" 
                   placeholder="First Name*" 
-                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  className={`block w-full bg-off-white border rounded-lg px-4 py-0.5 focus:outline-none
+                            ${errors.firstName ? "border-red focus:border-red" : "border-dark-gray rfocus:border-blue"}`}
                   required
                 />
+                {errors.firstName && (
+                  <p id="err-firstName" role="alert" className="mt-1 text-sm text-red">
+                    {errors.firstName}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -219,9 +313,15 @@ export default function Home() {
                   name="lastName" 
                   id="lastName" 
                   placeholder="Last Name*" 
-                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  className={`block w-full bg-off-white border rounded-lg px-4 py-0.5 focus:outline-none
+                            ${errors.lastName ? "border-red focus:border-red" : "border-dark-gray rfocus:border-blue"}`} 
                   required
                 />
+                {errors.lastName && (
+                  <p id="err-lastName" role="alert" className="mt-1 text-sm text-red">
+                    {errors.lastName}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -231,9 +331,15 @@ export default function Home() {
                   name="companyName" 
                   id="companyName" 
                   placeholder="Company Name*" 
-                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  className={`block w-full bg-off-white border rounded-lg px-4 py-0.5 focus:outline-none
+                            ${errors.companyName ? "border-red focus:border-red" : "border-dark-gray rfocus:border-blue"}`} 
                   required
                 />
+                {errors.companyName && (
+                  <p id="err-companyName" role="alert" className="mt-1 text-sm text-red">
+                    {errors.companyName}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -243,9 +349,15 @@ export default function Home() {
                   name="email" 
                   id="email" 
                   placeholder="Email*"
-                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  className={`block w-full bg-off-white border rounded-lg px-4 py-0.5 focus:outline-none
+                            ${errors.email ? "border-red focus:border-red" : "border-dark-gray rfocus:border-blue"}`} 
                   required
                 />
+                {errors.email && (
+                  <p id="err-email" role="alert" className="mt-1 text-sm text-red">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div>
@@ -255,13 +367,19 @@ export default function Home() {
                   name="cellPhone" 
                   id="cellPhone" 
                   placeholder="Cell Phone*" 
-                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue"
+                  className={`block w-full bg-off-white border rounded-lg px-4 py-0.5 focus:outline-none
+                            ${errors.cellPhone ? "border-red focus:border-red" : "border-dark-gray rfocus:border-blue"}`}
                 />
+                {errors.cellPhone && (
+                  <p id="err-cellPhone" role="alert" className="mt-1 text-sm text-red">
+                    {errors.cellPhone}
+                  </p>
+                )}
               </div>
             </div>
 
-            <LinkButton href="/blog" variant="primary" size="lg" >See plans &amp; pricing</LinkButton>
-          </form>
+            <LinkButton type="submit" variant="primary" size="lg" disabled={status === "saving"}>See plans &amp; pricing</LinkButton>
+          </Form>
         </div>
       </section>
     </main>
