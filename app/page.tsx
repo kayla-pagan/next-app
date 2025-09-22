@@ -181,9 +181,9 @@ export default function Home() {
       </section>
 
       {/* blog section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16">
+      <section className="flex flex-col justify-center items-center gap-6 max-w-6xl mx-auto py-12 md:py-16">
         <h2 className="header-2 text-center">Want to learn more? Read our articles on legal intake.</h2>
-        <Carousel loop={false} gapClassName="gap-4" mdBasisClassName="basis-1/3">
+        <Carousel loop={false} slidePadding="px-3.5" breakpointBasisClassName="min-[850px]:basis-1/3">
           {articleElements}
         </Carousel>
         <LinkButton href="/blog" variant="primary" size="lg">Go to blog</LinkButton>

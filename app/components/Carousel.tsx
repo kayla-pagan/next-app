@@ -8,15 +8,15 @@ import { PiCaretRight } from "react-icons/pi";
 type Props = {
     children: ReactNode;
     loop?: boolean;
-    gapClassName?: string;
-    mdBasisClassName?: string;
+    slidePadding?: string;
+    breakpointBasisClassName?: string;
 }
 
 export default function Carousel({
     children,
     loop = false,
-    gapClassName = "gap-6",
-    mdBasisClassName = "basis-1/3",
+    slidePadding = "px-3.5",
+    breakpointBasisClassName = "min-[1000px]:basis-1/3",
 }: Props) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop,
@@ -54,23 +54,9 @@ export default function Carousel({
 
     return (
         <div className="embla w-full relative">
-            <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-                <div className={`embla__container flex ${gapClassName}`}>
-                    {Children.toArray(children).map((child, i) => {
-                        const key = isValidElement(child) && child.key !== null ? child.key : i
-
-                        return (
-                            <div 
-                                className={`embla__slide basis-full shrink-0 md:${mdBasisClassName}`}
-                                key={key}
-                            >
-                                {child}
-                            </div>
-                        )
-                    })}
-                </div>
+            <div className="flex justify-center items-center gap-16 pt-8 pb-2 w-full xl:py-0 xl:gap-0">
                 <button 
-                    className="embla__prev absolute -left-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
+                    className="embla__prev xl:absolute -left-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
                                 p-1 border border-2 border-gray rounded-full disabled:opacity-50" 
                     onClick={scrollPrev}
                     disabled={!canPrev}
@@ -78,13 +64,29 @@ export default function Carousel({
                     <PiCaretLeft className="w-10 h-auto text-navy-blue" />
                 </button>
                 <button 
-                    className="embla__next absolute -right-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
+                    className="embla__next xl:absolute -right-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
                                 p-1 border border-2 border-gray rounded-full disabled:opacity-50" 
                     onClick={scrollNext}
                     disabled={!canNext}
                 >
                     <PiCaretRight className="w-10 h-auto text-navy-blue" />
                 </button>
+            </div>
+            <div className="embla__viewport overflow-hidden" ref={emblaRef}>
+                <div className={`embla__container flex -mx-2.15 my-2.5`}>
+                    {Children.toArray(children).map((child, i) => {
+                        const key = isValidElement(child) && child.key !== null ? child.key : i
+
+                        return (
+                            <div 
+                                className={`embla__slide basis-full shrink-0 ${breakpointBasisClassName} ${slidePadding}`}
+                                key={key}
+                            >
+                                {child}
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     )
