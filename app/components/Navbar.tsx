@@ -1,17 +1,29 @@
 "use client";
 
-import Link from "next/link"
+import Link, { LinkProps } from "next/link"
 import Image from "next/image"
 import AnsweringLegalLogo from "@/public/answering-legal-logo.png"
 import SearchIcon from "@/public/search-icon.svg"
 import LinkButton from "./LinkButton"
 import { useState } from "react"
+import { MdKeyboardArrowDown } from "react-icons/md";
+import { MdKeyboardArrowUp } from "react-icons/md";
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
+    const [isActive, setIsActive] = useState<string | null>(null)
+    const [showSearch, setShowSearch] = useState(false)
+
+    function toggleActive(href: string) {
+        setIsActive(prev => (prev === href ? null : href))
+    }
 
     return (
-        <header className="w-full py-2 px-8 bg-off-white">
+        <header className="w-full pt-10 pb-8 px-9 bg-off-white">
+            <div className="hidden justify-end items-center gap-8 xl:flex">
+                <Link href="/support" className="body-2 font-normal text-gray underline decoration-1 underline-offset-2">Support</Link>
+                <Link href="tel:6316869700" className="body-2 font-semibold text-blue">(631) 686-9700</Link>
+            </div>
             <div className="flex flex-row justify-between items-center gap-2">
                 {/* Logo */}
                 <Link href="/">
@@ -23,43 +35,100 @@ export default function Navbar() {
                     />
                 </Link>
                 {/* Primary nav */}
-                <nav className="">
-                    <ul className="flex-row items-center gap-8 hidden lg:flex">
+                <nav className="hidden xl:block">
+                    <ul className="flex flex-row items-center gap-8">
                         <li>
-                            <Link href="/products" className="text-navy-blue text-xl font-semibold">Products</Link>
+                            <Link 
+                                href="/products" 
+                                className={`flex items-end gap-2 relative body-2 font-semibold text-navy-blue text-xl font-semibold hover:text-blue pb-2 
+                                            after:absolute after:left-0 after:right-0 after:bottom-0 
+                                            after:h-[4px] after:bg-teal after:rounded-lg after:origin-center 
+                                            after:scale-x-0 after:transition-transform after:duration-200 
+                                            data-[active=true]:after:scale-x-100`}
+                                data-active={isActive === "/products"}
+                                onClick={(e) => {e.preventDefault(); toggleActive("/products");}}
+                            >
+                                    Products {isActive === "/products" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/about" className="text-navy-blue text-xl font-semibold">About</Link>
+                            <Link 
+                                href="/about" 
+                                className={`flex items-end gap-2 relative body-2 font-semibold text-navy-blue text-xl font-semibold hover:text-blue pb-2 
+                                            after:absolute after:left-0 after:right-0 after:bottom-0 
+                                            after:h-[4px] after:bg-teal after:rounded-lg after:origin-center 
+                                            after:scale-x-0 after:transition-transform after:duration-200 
+                                            data-[active=true]:after:scale-x-100`}
+                                data-active={isActive === "/about"}
+                                onClick={(e) => {e.preventDefault(); toggleActive("/about");}}
+                            >
+                                About {isActive === "/about" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/resources" className="text-navy-blue text-xl font-semibold">Resources</Link>
+                            <Link 
+                                href="/resources" 
+                                className={`flex items-end gap-2 relative body-2 font-semibold text-navy-blue text-xl font-semibold hover:text-blue pb-2 
+                                            after:absolute after:left-0 after:right-0 after:bottom-0 
+                                            after:h-[4px] after:bg-teal after:rounded-lg after:origin-center 
+                                            after:scale-x-0 after:transition-transform after:duration-200 
+                                            data-[active=true]:after:scale-x-100`}
+                                data-active={isActive === "/resources"}
+                                onClick={(e) => {e.preventDefault(); toggleActive("/resources");}}
+                            >
+                                Resources {isActive === "/resources" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+                            </Link>
                         </li>
                         <li>
-                            <Link href="/pricing" className="text-navy-blue text-xl font-semibold">Pricing</Link>
+                            <Link 
+                                href="/pricing" 
+                                className={`flex items-end gap-2 relative body-2 font-semibold text-navy-blue text-xl font-semibold hover:text-blue pb-2 
+                                            after:absolute after:left-0 after:right-0 after:bottom-0 
+                                            after:h-[4px] after:bg-teal after:rounded-lg after:origin-center 
+                                            after:scale-x-0 after:transition-transform after:duration-200 
+                                            data-[active=true]:after:scale-x-100`}
+                                data-active={isActive === "/pricing"}
+                                onClick={(e) => {e.preventDefault(); toggleActive("/pricing");}}
+                            >
+                                Pricing
+                            </Link>
                         </li>
                     </ul>
                 </nav>
                 {/* User actions */}
-                <div className="flex-row items-center gap-4 hidden lg:flex">
-                    <button>
-                        <Image 
-                            src={SearchIcon} 
-                            alt="Search" 
-                            className="w-[42px] h-auto shrink-0"
-                        />
-                    </button>
-                    <LinkButton 
-                        href="/try-for-free" 
-                        variant="primary" 
-                        size="md" 
-                        className="shrink-0"
-                    >
-                            Try for free
-                    </LinkButton>
+                <div className="flex flex-col items-end gap-4">
+                    <div className="flex-row items-center gap-4 hidden xl:flex">
+                        <div className="flex items-center">
+                            <button>
+                                <Image 
+                                    src={SearchIcon} 
+                                    alt="Search" 
+                                    className="w-[60px] h-auto shrink-0"
+                                    onClick={() => setShowSearch(prevSearch => !prevSearch)}
+                                />
+                            </button>
+                            {showSearch && 
+                                <input 
+                                    id="search-input" 
+                                    type="text" 
+                                    placeholder="Search" 
+                                    className="text-xl py-0.25 border-b border-gray max-w-[150px]" 
+                                />
+                            }
+                        </div>
+                        <LinkButton 
+                            href="/try-for-free" 
+                            variant="primary" 
+                            size="md" 
+                            className="shrink-0"
+                        >
+                                Try for free
+                        </LinkButton>
+                    </div>
                 </div>
                 {/* Hamburger Icon */}
                 <button 
-                    className="flex flex-col justify-center items-center lg:hidden" 
+                    className="flex flex-col justify-center items-center xl:hidden" 
                     onClick={() => setIsOpen(prevOpen => !prevOpen)}
                 >
                     <span 
