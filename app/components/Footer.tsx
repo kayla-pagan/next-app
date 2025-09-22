@@ -70,7 +70,7 @@ export default function Footer(){
                                 <Link href="/videos" className="text-sm leading-[2.4] hover:text-teal">Videos</Link>
                             </li>
                             <li>
-                                <Link href="/lets-talk-legal" className="text-sm leading-[2.4] hover:text-teal">Let's Talk Legal</Link>
+                                <Link href="/lets-talk-legal" className="text-sm leading-[2.4] hover:text-teal">Let&apos;s Talk Legal</Link>
                             </li>
                             <li>
                                 <Link href="/marketing" className="text-sm leading-[2.4] hover:text-teal">Marketing</Link>

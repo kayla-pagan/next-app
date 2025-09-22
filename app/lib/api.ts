@@ -17,10 +17,6 @@ export type ValidationReturn = {
     isValid: boolean;
 }
 
-function capitalize(word: string) {
-    return word.charAt(0) + word.slice(1)
-}
-
 export async function validateForm(
     formData : FormData, 
     validationRules: ValidationRules

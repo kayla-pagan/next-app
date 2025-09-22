@@ -109,7 +109,7 @@ export default function Home() {
             </div>
           </div>
           <div className="text-center md:text-left">
-            <h1 className="header-2 text-balance">We're more than an answering service</h1>
+            <h1 className="header-2 text-balance">We&apos;re more than an answering service</h1>
             <p className="subtitle-2 text-pretty py-3">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
           </div>
           <LinkButton href="/pricing" variant="primary" size="sm" fullWidth external={false}>See our pricing</LinkButton>
@@ -123,7 +123,7 @@ export default function Home() {
       >
         <div className=" w-full max-w-6xl mx-auto pb-[307px]">
           <div className="text-left max-w-2xl">
-            <h1 className="header-1 leading-[1.2]">We're more than an answering service</h1>
+            <h1 className="header-1 leading-[1.2]">We&apos;re more than an answering service</h1>
             <p className="subtitle-1 pt-4">Answering Legal has everything you need to make sure your firm never misses another opportunity.</p>
           </div>
           <div className="flex flex-col justify-center pt-6 pb-8">
