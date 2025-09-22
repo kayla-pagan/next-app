@@ -146,19 +146,19 @@ export default function Navbar() {
                     <span 
                         className={
                             `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] 
-                            ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-0.5 rotate-0'}`
+                            ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5 rotate-0"}`
                         }
                     ></span>
                     <span
                         className={
                             `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] my-0.5 
-                            ${isOpen ? 'hidden' : 'block'}`
+                            ${isOpen ? "hidden" : "block"}`
                         }
                     ></span>
                     <span
                         className={
                             `bg-navy-blue block transition-all duration-300 ease-out h-[7px] w-[44px] rounded-[12px] 
-                            ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-0.5 rotate-0'}`
+                            ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5 rotate-0"}`
                         }
                     ></span>
                 </button>
