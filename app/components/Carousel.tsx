@@ -1,7 +1,7 @@
 "use client";
 
 import useEmblaCarousel from "embla-carousel-react"
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, Children, isValidElement, type ReactNode } from "react";
 import { PiCaretLeft } from "react-icons/pi";
 import { PiCaretRight } from "react-icons/pi";
 
@@ -16,7 +16,7 @@ export default function Carousel({
     children,
     loop = false,
     gapClassName = "gap-6",
-    mdBasisClassName = "md:basis-1/3",
+    mdBasisClassName = "basis-1/3",
 }: Props) {
     const [emblaRef, emblaApi] = useEmblaCarousel({
         loop,
@@ -55,13 +55,19 @@ export default function Carousel({
     return (
         <div className="embla w-full relative">
             <div className="embla__viewport overflow-hidden" ref={emblaRef}>
-                <div className="embla__container flex">
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Slide 1</div>
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Slide 2</div>
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Sldie 3</div>
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Slide 1</div>
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Slide 2</div>
-                    <div className="embla__slide basis-full shrink-0 md:basis-1/3">Sldie 3</div>
+                <div className={`embla__container flex ${gapClassName}`}>
+                    {Children.toArray(children).map((child, i) => {
+                        const key = isValidElement(child) && child.key !== null ? child.key : i
+
+                        return (
+                            <div 
+                                className={`embla__slide basis-full shrink-0 md:${mdBasisClassName}`}
+                                key={key}
+                            >
+                                {child}
+                            </div>
+                        )
+                    })}
                 </div>
                 <button 
                     className="embla__prev absolute -left-20 top-1/2 -translate-y-1/2 flex justify-center items-center 
