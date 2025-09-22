@@ -190,32 +190,84 @@ export default function Home() {
       </section>
 
       {/* form section */}
-      <section className="flex flex-col justify-center items-center max-w-6xl mx-auto py-12 md:py-16 md:flex-row">
-        <div className="flex-1">
-          <h2 className="header-2 md:header-1">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
-          <p className="subtitle-1">
-            Don’t believe us? Fill out the form on the right, and we’ll take you to our pricing page, where you can find 
-            out just how little 24/7 legal intake will cost you.
-          </p>
+      <section className="bg-navy-blue">
+        <div className="w-full flex flex-col justify-center items-center max-w-6xl mx-auto px-4 py-12 md:py-16 md:flex-row">
+          <div className="flex-1 text-white">
+            <h2 className="header-2 md:header-1 pb-8">24/7 coverage at a fraction of the cost of in-house receptionists.</h2>
+            <p className="subtitle-1">
+              Don’t believe us? Fill out the form on the right, and we’ll take you to our pricing page, where you can find 
+              out just how little 24/7 legal intake will cost you.
+            </p>
+          </div>
+          <form action="" className="bg-white rounded-xl flex flex-col justify-center align-center flex-1 p-8 w-full">
+            <h3 className="subtitle-1 text-navy-blue">
+              Tell us about yourself. We’ll show you all of our pricing information on the next page.
+            </h3>
+
+            <div className="flex flex-col gap-6 py-8">
+              <div>
+                <label htmlFor="firstName" className="subtitle-2 text-navy-blue">First Name*</label>
+                <input 
+                  type="text" 
+                  name="firstName" 
+                  id="firstName" 
+                  placeholder="First Name*" 
+                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="lastName" className="subtitle-2 text-navy-blue">Last Name*</label>
+                <input 
+                  type="text" 
+                  name="lastName" 
+                  id="lastName" 
+                  placeholder="Last Name*" 
+                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="companytName" className="subtitle-2 text-navy-blue">Company Name*</label>
+                <input 
+                  type="text" 
+                  name="companyName" 
+                  id="companyName" 
+                  placeholder="Company Name*" 
+                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="subtitle-2 text-navy-blue">Email*</label>
+                <input 
+                  type="email" 
+                  name="email" 
+                  id="email" 
+                  placeholder="Email*"
+                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue" 
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="cellPhone" className="subtitle-2 text-navy-blue">Cell Phone*</label>
+                <input 
+                  type="tel" 
+                  name="cellPhone" 
+                  id="cellPhone" 
+                  placeholder="Cell Phone*" 
+                  className="block w-full bg-off-white border border-dark-gray rounded-lg px-4 py-0.5 focus:outline-blue"
+                />
+              </div>
+            </div>
+
+            <LinkButton href="/blog" variant="primary" size="lg" >See plans &amp; pricing</LinkButton>
+          </form>
         </div>
-        <form action="" className="flex flex-col justify-center align-center flex-1 p-8 w-full">
-          <h3 className="subtitle-1">Tell us about yourself. We’ll show you all of our pricing information on the next page.</h3>
-
-          <label htmlFor="firstName">First Name*</label>
-          <input type="text" name="firstName" id="firstName" placeholder="First Name*" />
-
-          <label htmlFor="lastName">Last Name*</label>
-          <input type="text" name="lastName" id="lastName" placeholder="Last Name*" />
-
-          <label htmlFor="companytName">Company Name*</label>
-          <input type="text" name="companyName" id="companyName" placeholder="Company Name*" />
-
-          <label htmlFor="email">Email*</label>
-          <input type="email" name="email" id="email" />
-
-          <label htmlFor="cellPhone">Cell Phone*</label>
-          <input type="tel" name="cellPhone" id="cellPhone" placeholder="Cell Phone*" />
-        </form>
       </section>
     </main>
   )
